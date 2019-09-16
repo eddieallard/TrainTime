@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Train Scheduler</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="script.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body>
+    <div class="row">
+        <div class="header">
+            <div class="jumbotron jumbotron-fluid">
+                <div class="container">
+                    <h1 class="display-4">Employee Data</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <table class="table">
+            <div class="row-6">
+                <nav class="navbar bg-primary">
+                    <span class="navbar-text">
+                        Current Employee
+                    </span>
+                </nav>
+                <thead>
+                    <tr>
+                        <th scope="col">Employee Name</th>
+                        <th scope="col">Role</th>
+                        <th scope="col">Start Date</th>
+                        <th scope="col">Monthly worked)</th>
+                        <th scope="col">Monthly Rate ($)</th>
+                        <th scope="col">Total Money Earned</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>Larry</td>
+                        <td>the Bird</td>
+                        <td>@twitter</td>
+                    </tr>
+                </tbody>
+        </table>
+
+        <div class="row-6">
+            <nav class="navbar bg-primary">
+                <span class="navbar-text">
+                    Current Employee
+                </span>
+            </nav>
+            <br>
+            <form>
+                <div class="form-group">
+                    <label for="formGroupExampleInput">Employee Name:</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Jane Doe">
+                </div>
+                <div class="form-group">
+                    <label for="formGroupExampleInput2">Role:</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="CEO">
+                </div>
+                <div class="form-group">
+                    <label for="formGroupExampleInput3">Start Date:</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput3" placeholder="1/1/2019">
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="formGroupExampleInput4">Monthly Rate ($):</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput4" placeholder="5000">
+                </div>
+                <br>
+                <div>
+                    <button type="submit" class="btn btn-primary" id="add-train">Submit</button>
+                </div>
+
+
+                <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-app.js"></script>
+                <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-database.js"></script>
+</body>
+
+<html>
