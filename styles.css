@@ -3,6 +3,7 @@
    margin-top: 10px;
 }
 .jumbotron.jumbotron-fluid{
+   background-image: url("https://www.sundaypost.com/wp-content/uploads/sites/13/2018/06/GettyImages-512188220.jpg.jpg");
    background-color: black;
    width: 900px;
    height:300px;
@@ -16,4 +17,10 @@
 }
 .div.form-group{
    margin-right: 20px;
+}
+
+h1 {
+   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+   text-align: center;
+   
 }

@@ -1,21 +1,17 @@
-$(document).ready(function() {
+console.log("hooked up");
 
-    var firebaseConfig = {
-        apiKey: "AIzaSyASRk4gxerHvVRp80Gy0xKomhljHIIveJw",
-        authDomain: "choo-choo-22ed0.firebaseapp.com",
-        databaseURL: "https://choo-choo-22ed0.firebaseio.com",
-        projectId: "choo-choo-22ed0",
-        storageBucket: "",
-        messagingSenderId: "391822017201",
-        appId: "1:391822017201:web:514fd5eda640e4a1a19890"
-      };
-      // Initialize Firebase
-      firebase.initializeApp(firebaseConfig);
+var firebaseConfig = {
+  apiKey: "AIzaSyASRk4gxerHvVRp80Gy0xKomhljHIIveJw",
+  authDomain: "choo-choo-22ed0.firebaseapp.com",
+  databaseURL: "https://choo-choo-22ed0.firebaseio.com",
+  projectId: "choo-choo-22ed0",
+  storageBucket: "",
+  messagingSenderId: "391822017201",
+  appId: "1:391822017201:web:514fd5eda640e4a1a19890"
+};
     
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-
-
 
 // GET A REFERENCE TO THE DATABASE
 var database = firebase.database();
@@ -56,7 +52,7 @@ $("#add-train").on("click", function(event) {
     dbfirstName: firstTrain
 
   })
-    alert("Train added...!")
+    alert("Train added...!");
 
   $("#train-input").val("");
   $("#destination-input").val("");
@@ -65,15 +61,15 @@ $("#add-train").on("click", function(event) {
 
 });
 
-database.ref().on("#child_added", function(snapshot) {
-// CONSOLE LOG DATA
-console.log(snapshot.value());
+database.ref().on("child_added", function(snap) {
+// CONSOLE LOG DATA   
+console.log(snap.val());
 
 
-var tName = snapshot.val().dbtrainName;
-var tDestination = snapshot.val().dbTrainDestination;
-var tFrequency = snapshot.val().dbtrainFrequency;
-var tFirstTrain = snapshot.val().dbfirstTrain;
+var tName = snap.val().dbtrainName;
+var tDestination = snap.val().dbTrainDestination;
+var tFrequency = snap.val().dbtrainFrequency;
+var tFirstTrain = snap.val().dbfirstTrain;
 
 // First Time (pushed back 1 year to make sure it comes before current time)
 var firstTimeConverted = moment(tFirstTrain, "HH:mm").subtract(1, "years");
@@ -109,23 +105,6 @@ tr.append("<td>" + tFrequency + "</td>"),
 tr.append("<td>" + moment(nextTrain).format("hh:mm") + "</td>"),
 tr.append("<td>" + tMinutesTillTrain + "</td>"),
 
-
-
 $("tbody").append(tr)
 
-
-//create vars to holds tables elements and content
-// append all table data(td) to the table row (tr)
-// append to the tbody element
-
-
-
 });
-
-
-});
-
-
-
-
-
