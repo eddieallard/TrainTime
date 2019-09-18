@@ -18,7 +18,7 @@
         <div class="header">
             <div class="jumbotron jumbotron-fluid">
                 <div class="container">
-                    <h1 class="display-4">Employee Data</h1>
+                    <h1 class="display-4">Train Schedule</h1>
                 </div>
             </div>
         </div>
@@ -74,21 +74,21 @@
             <br>
             <form>
                 <div class="form-group">
-                    <label for="formGroupExampleInput">Employee Name:</label>
-                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Jane Doe">
+                    <label for="train-input">Train Name:</label>
+                    <input type="text" class="form-control" id="train-input" placeholder="Jane Doe">
                 </div>
                 <div class="form-group">
-                    <label for="formGroupExampleInput2">Role:</label>
-                    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="CEO">
+                    <label for="destination-input">Train Destination:</label>
+                    <input type="text" class="form-control" id="destination-input" placeholder="CEO">
                 </div>
                 <div class="form-group">
-                    <label for="formGroupExampleInput3">Start Date:</label>
-                    <input type="text" class="form-control" id="formGroupExampleInput3" placeholder="1/1/2019">
+                    <label for="time-input">First Train Time (HH:mm - Military Time):</label>
+                    <input type="text" class="form-control" id="time-input" placeholder="1/1/2019">
                 </div>
                 <br>
                 <div class="form-group">
-                    <label for="formGroupExampleInput4">Monthly Rate ($):</label>
-                    <input type="text" class="form-control" id="formGroupExampleInput4" placeholder="5000">
+                    <label for="frequency-input">Frequency:</label>
+                    <input type="text" class="form-control" id="frequency-input" placeholder="5000">
                 </div>
                 <br>
                 <div>
@@ -98,6 +98,7 @@
 
                 <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-app.js"></script>
                 <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-database.js"></script>
+                <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
 </body>
 
 <html>

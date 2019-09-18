@@ -22,38 +22,46 @@ var database = firebase.database();
 
 // GLOBAL VARIABLES
 var trainName;
-var destination;
+var trainDestination;
 var trainFrequency;
 var firstTrain;
+
 // EVERYTHING ABOVE ^^^^ GOES IN THE DATABASE
 var trainNextArrival;
 var trainMinutesAway;
 
 // POPULATE FIREBASE DATABASE WITH INITIAL DATA
+
 // CREATE ON CLICK EVENT TO CAPTURE FORM VALUES
 $("#add-train").on("click", function(event) {
-    event.preventDefault();
 
-trainName = $("#train-input").val().trim();
-trainDesination = $("#destination-input").val().trim();
-trainFrequency = $("#frequency-input").val().trim();
-firstTrain = $("#time-input").val().trim();
+  event.preventDefault();
 
-console.log(trainName);
+  trainName = $("#train-input").val().trim();
+  trainDestination = $("#destination-input").val().trim();
+  trainFrequency = $("#frequency-input").val().trim();
+  firstTrain = $("#time-input").val().trim();
 
-database.re().push({
-    dbtrtainName: trainName,
-    dbTrainDestination: trainDestination,
+  console.log(trainName);
+  console.log(trainDestination);
+  console.log(trainFrequency);
+  console.log(firstTrain);
+
+
+  database.ref().push({
+
+    dbtrainName: trainName,
+    dbtrainDestination: trainDestination,
     dbtrainFrequency: trainFrequency,
     dbfirstName: firstTrain
-})
 
-alert("Train added...!")
+  })
+    alert("Train added...!")
 
-$("#train-input").val("");
-$("#destination-input").val("");
-$("#frequency-input").val("");
-$("#time-input").val("");
+  $("#train-input").val("");
+  $("#destination-input").val("");
+  $("#frequency-input").val("");
+  $("#time-input").val("");
 
 });
 
@@ -65,7 +73,31 @@ console.log(snapshot.value());
 var tName = snapshot.val().dbtrainName;
 var tDestination = snapshot.val().dbTrainDestination;
 var tFrequency = snapshot.val().dbtrainFrequency;
-var tfirstTrain = snapshot.val().dbfirstTrain;
+var tFirstTrain = snapshot.val().dbfirstTrain;
+
+// First Time (pushed back 1 year to make sure it comes before current time)
+var firstTimeConverted = moment(tFirstTrain, "HH:mm").subtract(1, "years");
+console.log(firstTimeConverted);
+
+// Current Time
+var currentTime = moment();
+console.log("CURRENT TIME: " + moment(currentTime).format("hh:mm"));
+
+// Difference between the times
+var diffTime = moment().diff(moment(firstTimeConverted), "minutes");
+console.log("DIFFERENCE IN TIME: " + diffTime);
+
+// Time apart (remainder)
+var tRemainder = diffTime % tFrequency;
+console.log(tRemainder);
+
+// Minute Until Train
+var tMinutesTillTrain = tFrequency - tRemainder;
+console.log("MINUTES TILL TRAIN: " + tMinutesTillTrain);
+
+// Next Train
+var nextTrain = moment().add(tMinutesTillTrain, "minutes");
+console.log("ARRIVAL TIME: " + moment(nextTrain).format("hh:mm"));
 
 // Store everyhting into a variable
 //nest arrival and miniates aways calulates here
@@ -74,8 +106,8 @@ var tr = $("<tr>");
 tr.append("<td>" + tName + "</td>"),
 tr.append("<td>" + tDestination + "</td>"),
 tr.append("<td>" + tFrequency + "</td>"),
-tr.append("<td> to be calculated </td>"),
-tr.append("<td> to be calculated </td>"),
+tr.append("<td>" + moment(nextTrain).format("hh:mm") + "</td>"),
+tr.append("<td>" + tMinutesTillTrain + "</td>"),
 
 
 
